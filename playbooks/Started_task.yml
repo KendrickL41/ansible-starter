@@ -4,8 +4,22 @@
   gather_facts: false
   environment: "{{ environment_vars }}"
 
-- name: Display all started tasks.
-  zos_started_task:
-    state: "displayed"
-    job_name: "all"
+  tasks:
+- name: Query all active jobs
+      zos_job_query:
+      register: active_jobs
+
+- name: Keep only started tasks
+  set_fact:
+    started_tasks: >-
+      {{
+         active_jobs.jobs
+        | selectattr('job_class', 'defined')
+        | selectattr('job_class', 'equalto', 'STC')
+        | list
+      }}
+
+- name: Display result
+  debug:
+    msg: "{{ started_tasks | map(attribute='job_name') | list }}"
     
