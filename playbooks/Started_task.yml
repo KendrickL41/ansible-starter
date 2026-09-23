@@ -6,8 +6,8 @@
 
   tasks:
 - name: Query all active jobs
-      zos_job_query:
-      register: active_jobs
+  zos_job_query:
+  register: active_jobs
 
 - name: Keep only started tasks
   set_fact:
