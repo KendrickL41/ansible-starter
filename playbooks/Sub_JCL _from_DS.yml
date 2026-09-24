@@ -11,7 +11,7 @@
   - name: Submit JCL from dataset
     zos_job_submit:
       src: KLOCK1.ANSIBLE.JCL(TESTPLAY)
-      location: data_set
+      location: DATA_SET
       register: job_output
 
   - name: Show job ID and return code
