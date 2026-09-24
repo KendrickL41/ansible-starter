@@ -1,0 +1,19 @@
+
+- name: Hello World JCL job
+  hosts: zoslab
+  gather_facts: false
+  collections:
+    - ibm.ibm_zos_core
+  environment: "{{ environment_vars }}"
+
+  tasks:
+
+- name: Submit JCL from dataset
+  zos_job_submit:
+    src: KLOCK1.ANSIBLE.JCL(TESTPLAY)
+    location: data_set
+    register: job_output
+
+  - name: Show job ID and return code
+    debug:
+      var: job_output
