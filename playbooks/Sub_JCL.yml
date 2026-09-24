@@ -13,5 +13,5 @@
       src: "{{ playbook_dir }}/Hello_JCL.txt" 
       location: LOCAL
       encoding:
-        from: ISO8859-1
+        from: UTF-8
         to: IBM-1047
