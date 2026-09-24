@@ -12,7 +12,7 @@
     zos_job_submit:
       src: KLOCK1.ANSIBLE.JCL(TESTPLAY)
       location: DATA_SET
-      register: job_output
+    register: job_output
 
   - name: Show job ID and return code
     debug:
