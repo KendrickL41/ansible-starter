@@ -15,3 +15,12 @@
       encoding:
         from: UTF-8
         to: IBM-1047
+    register: job_output
+
+  - name: Show job ID and return code
+    debug:
+      msg: "Job {{ job_output.jobs[0].job_id }} completed RC={{ job_output.jobs[0].ret_code.msg }}"
+
+  - name: Show spool output
+    debug:
+      msg: "{{ job_output.jobs[0].ddnames | map(attribute='content') | list }}"
