@@ -1,5 +1,5 @@
 
-- name: Hello World JCL job
+- name: Hello World JCL job from dataset
   hosts: zoslab
   gather_facts: false
   collections:
