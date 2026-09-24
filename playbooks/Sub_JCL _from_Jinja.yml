@@ -47,7 +47,7 @@
         src: "{{ playbook_dir }}/templates/proddev.j2"
         dest: "{{ jcl_path }}"
       delegate_to: localhost
-
+      
     - name: Show rendered JCL
       ansible.builtin.command:
         cmd: cat "{{ jcl_path }}"
