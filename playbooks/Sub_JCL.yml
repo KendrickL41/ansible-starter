@@ -14,5 +14,4 @@
       location: LOCAL
       encoding:
         from: ISO8859-1
-        to: IBM-037
-      register: job_output
+        to: IBM-1047
